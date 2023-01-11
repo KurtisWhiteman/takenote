@@ -1,0 +1,51 @@
+server:
+  error:
+    #    include-message: always
+    #    include-binding-errors: always
+    #    include-exception: false
+    include-stacktrace: never
+  port: ${SPRING_PORT:8098}
+vue-url: ${FM_WEB_BASE_URL:http://localhost:8080}
+spring:
+  # https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties-data-migration
+  # Flyway specific properties
+  flyway:
+    url: ${FLYWAY_URL:jdbc:mysql://localhost:3307/?useSSL=false}
+    user: ${FLYWAY_USER:root}
+    password: ${FLYWAY_PASSWORD:takenote}
+    schemas: takenote
+    installed-by: flyway
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3307/takenote?useSSL=false}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:takenote}
+    default-batch-size: 5000
+    hikari:
+      pool-name: takenote
+      leakDetectionThreshold: 300000
+      maximumPoolSize: 30 # To support more concurrent transactions
+  jpa:
+    properties:
+      hibernate:
+        types:
+          print:
+            banner: false # Remove hibernate-types dependency banner
+      javax:
+        persistence:
+          query:
+            timeout: 300000
+    open-in-view: true #sometime to investigate if we have performance issues
+    show-sql: false #use org.hibernate.SQL=DEBUG instead if required
+    hibernate:
+    #ddl-auto: validate #This will validate java entities to database. Can be potentially turned on in the future.
+  data:
+    web:
+      pageable:
+        default-page-size: 99999
+        max-page-size: 99999
+  jmx:
+    enabled: true
+  servlet:
+    multipart:  #Enables uploading more than 1 MB files
+      max-file-size: 10MB
+      max-request-size: 10MB

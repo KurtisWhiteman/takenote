@@ -1,0 +1,51 @@
+.form-control-label {
+  color: ghostwhite;
+  font-weight: 400;
+  text-align: center;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+h1 {
+  color: #e8c547;
+}
+
+.helper-text {
+  font-size: 0.88rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+#noteboard {
+  height: 100%;
+}
+
+.noteboard-row {
+  height: 100%;
+}
+
+#note-list-div {
+  float: left;
+  height: 100%;
+  max-height: 100%;
+}
+
+#notepad-div {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#notepad-row {
+  height: 95vh;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+div {
+  color: darkslategray;
+}

@@ -1,0 +1,15 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins/breakpoints';
+
+:root {
+  --mainblack: #4d5061;
+  --secondaryblack: rgb(77, 80, 97, 0.25);
+  --mainyellow: #ebcd60;
+  --white: #ffffff;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}

@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  port:
+    network_mode: host
+    build:
+      context: ..
+      dockerfile: ./docker/port/Dockerfile
+    environment:
+      - FM_INT_AWS_ENABLED=false
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
+    depends_on:
+      - "database"
+  database:
+    build:
+      context: ..
+      dockerfile: ./docker/database/Dockerfile
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_USER=takenote
+      - MYSQL_PASSWORD=takenote
+      - MYSQL_ROOT_PASSWORD=takenote
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 1024M
