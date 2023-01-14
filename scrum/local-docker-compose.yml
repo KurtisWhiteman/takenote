@@ -9,16 +9,11 @@ services:
       - "15000:15000"
       - "8098:8098"
     environment: # Variables with REQUIRED defaults will need to pull from your own environment variables when the container is started
-      - FM_INT_AWS_ENABLED=${FM_INT_AWS_ENABLED:-false}
       - FLYWAY_URL=jdbc:mysql://database:3306/?useSSL=false
       - DB_URL=jdbc:mysql://database:3306/takenote?useSSL=false
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-REQUIRED}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-REQUIRED}
-      - AWS_REGION=${AWS_REGION:-ap-southeast-2}
-#      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN} # Uncomment this when using SSO
     deploy:
       resources:
         limits:
-          memory: 2048M
-        reservations:
           memory: 1024M
+        reservations:
+          memory: 512M

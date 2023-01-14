@@ -6,14 +6,12 @@ services:
     build:
       context: ..
       dockerfile: ./docker/port/Dockerfile
-    environment:
-      - FM_INT_AWS_ENABLED=false
     deploy:
       resources:
         limits:
-          memory: 2048M
-        reservations:
           memory: 1024M
+        reservations:
+          memory: 512M
     depends_on:
       - "database"
   database:
@@ -29,6 +27,6 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-        reservations:
           memory: 1024M
+        reservations:
+          memory: 512M
