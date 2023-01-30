@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 // @ is an alias to /src
-import Navbar from '@/components/Navbar/navigation-bar.vue';
+import Navbar from '@/components/Navbar/Navbar.vue';
 import Noteboard from '@/components/Noteboard/Noteboard.vue';
 
 @Component({

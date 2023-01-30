@@ -10,13 +10,13 @@ spring:
   # https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties-data-migration
   # Flyway specific properties
   flyway:
-    url: ${FLYWAY_URL:jdbc:mysql://localhost:3307/?useSSL=false}
+    url: ${FLYWAY_URL:jdbc:mysql://localhost:3306/?useSSL=false}
     user: ${FLYWAY_USER:root}
     password: ${FLYWAY_PASSWORD:takenote}
     schemas: takenote
     installed-by: flyway
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3307/takenote?useSSL=false}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/takenote?useSSL=false}
     username: ${DB_USER:root}
     password: ${DB_PASSWORD:takenote}
     default-batch-size: 5000
@@ -49,3 +49,8 @@ spring:
     multipart:  #Enables uploading more than 1 MB files
       max-file-size: 10MB
       max-request-size: 10MB
+jwt:
+  secret: ${JWT_SECRET:THISSHOULDNOTMAKETOPROUCTION}
+  expiry: 43200 #12 hours in seconds
+encryption:
+  secret-key: ${ENCRYPTION_SECRET_KEY:SECRETKEYGOESHERE}

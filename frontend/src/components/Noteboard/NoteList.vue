@@ -1,6 +1,6 @@
 <template>
   <div id="note-list" class="row">
-    <h5 class="p-2 pl-4" id="note-card-title">Your Notes</h5>
+    <h5 class="p-2 pl-4" id="note-card-title">Recent Notes</h5>
     <b-card no-body id="note-card">
       <b-list-group vertical tabs>
         <b-list-group-item v-for="(note, index) in notes" :value="note"
@@ -29,7 +29,6 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {AlertModel} from "@/helpers/types";
 import {Note} from "@/model/Note";
-import {format} from "date-fns";
 
 @Component({
   components: {},

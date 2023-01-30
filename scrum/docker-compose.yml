@@ -2,10 +2,14 @@ version: '3'
 
 services:
   port:
-    network_mode: host
     build:
       context: ..
       dockerfile: ./docker/port/Dockerfile
+    ports:
+      - "8098:8098"
+    environment:
+      - FLYWAY_URL=jdbc:mysql://database:3306/?useSSL=false&allowPublicKeyRetrieval=true
+      - DB_URL=jdbc:mysql://database:3306/takenote?useSSL=false&allowPublicKeyRetrieval=true
     deploy:
       resources:
         limits:
@@ -19,7 +23,7 @@ services:
       context: ..
       dockerfile: ./docker/database/Dockerfile
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       - MYSQL_USER=takenote
       - MYSQL_PASSWORD=takenote

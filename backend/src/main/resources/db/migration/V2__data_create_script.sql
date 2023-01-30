@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.35, for Linux (x86_64)
 --
--- Host: localhost    Database: freightmate
+-- Host: localhost    Database: takenote
 -- ------------------------------------------------------
 -- Server version	5.7.35
 

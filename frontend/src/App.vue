@@ -8,11 +8,20 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Constants from "@/helpers/util/Constants";
+import { isTokenValid } from "@/helpers/auth/TokenHelpers";
 
 @Component
 export default class App extends Vue {
   get layout () {
-    return 'home-layout'
+    return (this.$route.meta.layout || 'default') + '-layout'
+  }
+
+  mounted () {
+    // We need to check against Ignored route list to prevent the app from redirecting to log on
+    if (!isTokenValid() && !Constants.IGNORE_ROUTE_LIST.includes(this.$router.currentRoute.name)) {
+      this.$router.replace({ name: 'Login' })
+    }
   }
 }
 </script>
